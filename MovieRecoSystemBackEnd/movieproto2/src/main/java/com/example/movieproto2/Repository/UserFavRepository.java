@@ -37,7 +37,7 @@ public  class UserFavRepository {
         return jdbcTemplate.query("SELECT * FROM Ronan_User_Fav ",rowMapper);
     }
     public List<UserFav> findAllfromuser(int id){
-        return jdbcTemplate.query("SELECT * FROM Ronan_User_Fav WHERE userid="+id+" ",rowMapper);
+        return jdbcTemplate.query("SELECT * FROM Ronan_User_Fav WHERE userid="+id,rowMapper);
     }
     public boolean saveFavMovie(UserFav UserFav){  //function for inserting new favourite movie
         return jdbcTemplate.update(InsertQuery, UserFav.getGenres(),UserFav.getMovieid(),UserFav.getTitle(),UserFav.getUserid() ) > 0;

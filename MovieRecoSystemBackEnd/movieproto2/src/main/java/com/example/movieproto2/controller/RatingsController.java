@@ -23,10 +23,10 @@ public class RatingsController {
     @Autowired(required = true)
     private RatingsService ratingsservice;
 
-//    @GetMapping("/")
-//    public List<Movies> getAllmovies() throws Exception {
-//        return ratingsservice.getallmovies();
-//    }
+    @GetMapping("/id")
+    public Ratings getmovieratingmovies(@PathVariable int id) throws Exception {
+        return ratingsservice.getAverating(id);
+    }
     @PostMapping("/newrating")
     public boolean newmovie(@RequestBody Ratings ratings) throws Exception {
         return ratingsservice.saverating(ratings);

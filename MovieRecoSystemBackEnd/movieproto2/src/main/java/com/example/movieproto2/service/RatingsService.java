@@ -27,6 +27,22 @@ public class RatingsService {
         return repo.insertrating(Ratings);//pass rating object
     }
 
+    public Ratings getAverating(int id){
+        List<Ratings>movies=repo.getallRatingformovie(id);
+        double total=0.0;
+        int count=0;
+        for(int j = 0; j < movies.size(); j++) {
+            total+=movies.get(j).getRating();
+            count++;
+        }
+            double average=total/count;
+        int result = (int) Math.round(average);
+            Ratings rating=new Ratings();
+            rating.setMovieid(id);
+            rating.setRating(result);
+            return rating;
+//        return repo.getallRatingformovie(id)
+    }
 
     public String removeMovie(int id)
     {  String response;

@@ -47,4 +47,9 @@ public class MovieController {
         Movies Movie=movieservice.getmoviebyId(id);
         return  movieservice.deleteMovie(Movie.getMovieid());
     }
+    @DeleteMapping("/delori/{id}")
+    public String deleteOriMovie(@PathVariable int id){
+//        Movies Movie=movieservice.getmovieoribyId(id);
+        return  movieservice.deleteoriMovie(id);
+    }
 }

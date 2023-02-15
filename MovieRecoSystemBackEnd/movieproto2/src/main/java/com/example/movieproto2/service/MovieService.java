@@ -18,9 +18,12 @@ public class MovieService {
     }
     public List<Movies> getallorimovies()
     {
-        return repo.findAllorimovies();
+        return repo.findAllronan();
     }
-
+    public List<Movies> getalllatest()
+    {
+        return repo.findAlllatest();
+    }
 
     public Boolean savemovie(Movies movie)
     {
@@ -45,6 +48,15 @@ public class MovieService {
         return response;
 
     }
+    public String deleteoriMovie(int id)
+    {  String response;
+        if(repo.deleteoriMovie(id))
+            response="Movie Deleted";
+        else
+            response="Deletion Failed";
+        return response;
+
+    }
     public List<Movies> getsimilarmoviesbyId(int id)
     {
         return repo.getsimilarmovies(id);
@@ -55,6 +67,9 @@ public class MovieService {
     {
         return repo.findMoviebyid(id);
     }
-
+    public Movies getmovieoribyId(int id)
+    {
+        return repo.findMovieoribyid(id);
+    }
 
 }

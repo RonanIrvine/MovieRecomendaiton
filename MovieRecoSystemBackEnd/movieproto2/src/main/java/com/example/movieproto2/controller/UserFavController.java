@@ -21,7 +21,7 @@ public class UserFavController {
     public List<UserFav> getAllmovies() throws Exception {
         return movieservice.getallmovies();
     }
-    @GetMapping("/{id}")
+    @GetMapping("/getusermovies/{id}")
     public List<UserFav> getAllmovies(@PathVariable int id) throws Exception {
         return movieservice.getallmoviesuserfav(id);
     }

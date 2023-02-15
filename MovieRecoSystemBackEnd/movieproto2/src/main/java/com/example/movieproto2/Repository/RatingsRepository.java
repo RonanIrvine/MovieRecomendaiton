@@ -47,9 +47,10 @@ public  class RatingsRepository {
     public boolean insertrating(Ratings Ratings){ //function for inserting new ratings
         return jdbcTemplate.update(InsertQuery, Ratings.getUserid(),Ratings.getMovieid(),Ratings.getRating(), i) > 0;
     }
-//    public int getAvgMovieRating(int id){//function to get all ratings from DB
-//        return jdbcTemplate.query(getratingQuery,rowMapper);
-//    }
+
+    public List<Ratings>  getallRatingformovie(int id){//function to get all ratings from DB
+        return jdbcTemplate.query("SELECT * FROM RATINGS WHERE movieid="+id+"",rowMapper);
+    }
 
     public boolean removeRating (int id){ //function for deleting ratings
 

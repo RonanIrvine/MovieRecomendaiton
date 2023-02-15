@@ -74,19 +74,19 @@ const AddMovieComponet=()=>{
         })        
     }
 }
-    useEffect(() => {
-        MovieService.getMoviebyID(id).then((response)=>{
+    useEffect(() => {//run asyncronously 
+        MovieService.getMoviebyID(id).then((response)=>{ //If ID is present
          console.log(response.data.title)
-         setTitle(response.data.title)
-        setGenres(response.data.genres)
+         setTitle(response.data.title) //Title is set
+        setGenres(response.data.genres)//Genres is set
       }).catch(error=>{
        console.log(error)
     })
     }, [])  
     const pagetitle= () => {
-        if(id){ //if ID is present, title is changed
+        if(id){ //if ID is present, title is changed to Update
             return <h2 className = "text-center"> Update Movie</h2>
-        }else{
+        }else{ //if no ID present, title is change to Add
             return <h2 className = "text-center"> Add Movie</h2>
         }
     }
